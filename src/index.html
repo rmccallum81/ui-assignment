@@ -7,7 +7,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <p>Hello world!</p>
+    <h1>Commits</h1>
+    <table class="commit-table">
+      <thead>
+        <tr>
+          <th>Author</th>
+          <th>Commit Time</th>
+          <th>Message</th>
+          <th>Changes</th>
+          <th>Files</th>
+        </tr>
+      </thead>
+      <tbody id="commits">
+        <tr id="row-template">
+          <td class="author"></td>
+          <td class="commit-time"></td>
+          <td class="message">
+            <p></p>
+          </td>
+          <td class="changes">
+            <span class="additions"></span> / <span class="deletions"></span>
+          </td>
+          <td class="file-list">
+            <ul></ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button type="button" id="prev">Previous</button>
+      <button type="button" id="next">Next</button>
+    </div>
+    <div id="message-editor">
+      <form id="message-form">
+        <textarea id="message" name="message"></textarea>
+        <div class="form-buttons">
+          <button id="cancel" type="button">Cancel</button>
+          <button type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="patch-desc">
+      <pre><code id="patch-text"></code></pre>
+    </div>
     <script src="bundle.js"></script>
   </body>
 </html>

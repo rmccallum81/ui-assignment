@@ -1,0 +1,116 @@
+body {
+	font-size: 16px;
+	font-family: Helvetica, sans;
+
+	line-height: 1.5;
+}
+
+.commit-table {
+	border-collapse: collapse;
+	width: 100%;
+	tr {
+		&.edited {
+			background-color: lightblue;
+		}
+
+		&.saved {
+			background-color: lightgreen;
+		}
+
+		> td {
+			padding: 0.25rem;
+			border: 1px solid #000;
+			vertical-align: top;
+
+			&.author {
+				width: 15%;
+			}
+
+			&.commit-time {
+				width: 12rem;
+			}
+
+			&.message {
+				max-width: 30vw;
+				> p {
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					cursor: pointer;
+				}
+
+				#message-editor {
+					display: block;
+
+					textarea {
+						width: calc(100% - 70px);
+					}
+
+					.form-buttons
+					{
+						display: inline-block;
+
+						button {
+							display: block;
+							width: 56px;
+						}
+					}
+				}
+			}
+
+			&.changes {
+				width: 4rem;
+				text-align: center;
+
+				> .additions {
+					color: #00dd33;
+				}
+
+				> .deletions {
+					color: #ee0000;
+				}
+			}
+
+			&.file-list {
+				width: 25%;
+
+				> ul {
+					list-style: none;
+					padding: 0;
+					margin: 0;
+
+					> li {
+						position: relative;
+					}
+				}
+			}
+		}
+	}
+}
+
+#message-editor {
+	display: none;
+}
+
+.pagination {
+	#prev {
+		float: left;
+	}
+	#next {
+		float: right;
+	}
+}
+
+#patch-desc {
+	width: 30em;
+	max-height: 50vh;
+	overflow-y: auto;
+	padding: 0 1rem;
+	position: absolute;
+	font-size: 0.8rem;
+	background-color: #fff;
+	border: 1px solid #000;
+
+	right: 100%;
+	top: 0;
+}
